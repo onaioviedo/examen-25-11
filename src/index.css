@@ -1,0 +1,65 @@
+@import 'tailwindcss';
+
+/* Modo oscuro por clase (.dark en <html>), controlado por el botón del menú */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: ui-monospace, 'Cascadia Code', 'JetBrains Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+}
+
+:root {
+  color-scheme: light;
+}
+:root.dark {
+  color-scheme: dark;
+}
+
+html,
+body {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  @apply bg-slate-50 text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+/* Tarjeta volteable de las flashcards */
+.flip-card {
+  perspective: 1200px;
+}
+.flip-inner {
+  transition: transform 0.45s ease;
+  transform-style: preserve-3d;
+}
+.flip-inner.is-flipped {
+  transform: rotateY(180deg);
+}
+.flip-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.flip-back {
+  transform: rotateY(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flip-inner {
+    transition: none;
+  }
+}
+
+/* Barra inferior: respeta la zona segura del móvil */
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Scroll horizontal discreto para filas de chips */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}

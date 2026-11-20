@@ -1,0 +1,163 @@
+import type { Flashcard } from './tipos';
+
+// Flashcards: concepto delante, definición detrás. Añade más copiando un objeto (id único).
+
+export const FLASHCARDS: Flashcard[] = [
+  // ───────── Python básico ─────────
+  {
+    id: 'f-py-01',
+    bloque: 'python',
+    frente: '¿Por qué guardar los alumnos en una lista de diccionarios?',
+    reverso:
+      'La lista es ordenada, indexable y mutable (añadir, quitar, modificar alumnos). Cada diccionario agrupa los campos de un alumno y se consultan por clave ("nombre", "puntos_prueba").',
+  },
+  {
+    id: 'f-py-02',
+    bloque: 'python',
+    frente: 'Lista vs tupla vs conjunto vs diccionario (modificable y duplicados)',
+    reverso:
+      'Lista: índices, orden, modificable, admite duplicados. Tupla: igual pero NO modificable. Conjunto: sin índices ni orden, modificable, SIN duplicados. Diccionario: acceso por clave, conserva inserción, modificable, claves no repetidas.',
+  },
+  {
+    id: 'f-py-03',
+    bloque: 'python',
+    frente: '¿Qué valores produce range(5)? ¿Y range(10 - 1 - 2)?',
+    reverso: 'range(5) → 0, 1, 2, 3, 4 (el 5 no se incluye). range(7) → 0 a 6.',
+  },
+  {
+    id: 'f-py-04',
+    bloque: 'python',
+    frente: 'break vs continue',
+    reverso: 'break termina el bucle completo. continue salta a la siguiente vuelta sin terminar el bucle.',
+  },
+  {
+    id: 'f-py-05',
+    bloque: 'python',
+    frente: 'Media de minutos_plataforma: ¿suma, cálculo y qué imprime Python?',
+    reverso: 'Suma = 560; media = 560 / 10 = 56.0. Se imprime 56.0 porque / siempre devuelve float.',
+  },
+  {
+    id: 'f-py-06',
+    bloque: 'python',
+    frente: 'Bubble Sort: ¿qué ocurre al final de cada pasada exterior?',
+    reverso: 'El mayor valor pendiente queda colocado al final de la zona sin ordenar. Por eso el bucle interior puede revisar una posición menos en cada pasada (el «- i»).',
+  },
+  {
+    id: 'f-py-07',
+    bloque: 'python',
+    frente: '¿Para qué sirve la variable auxiliar en el intercambio?',
+    reverso: 'Guarda temporalmente horas[j] antes de sobrescribirlo con horas[j + 1]; después se copia en horas[j + 1]. Sin ella se perdería el valor.',
+    codigo: 'auxiliar = horas[j]\nhoras[j] = horas[j + 1]\nhoras[j + 1] = auxiliar',
+  },
+  {
+    id: 'f-py-08',
+    bloque: 'python',
+    frente: '¿Qué pasa si quitas el «- i» de range(n - 1 - i)? ¿Y el «- 1»?',
+    reverso: 'Sin «- i»: ordena igual pero hace comparaciones inútiles con posiciones ya ordenadas. Sin «- 1» (range(n - i)): en la primera pasada j llega a 9 y horas[10] → IndexError.',
+  },
+  {
+    id: 'f-py-09',
+    bloque: 'python',
+    frente: 'Mediana de horas_estudio: lista ordenada, índices y resultado',
+    reverso: '[2, 3, 4, 5, 5, 6, 6, 7, 8, 9]; n = 10 es par (10 % 2 == 0) → horas[4] = 5 y horas[5] = 6 → (5 + 6) / 2 = 5.5 horas.',
+  },
+  {
+    id: 'f-py-10',
+    bloque: 'python',
+    frente: '¿Por qué se usa n // 2 y no n / 2 como índice?',
+    reverso: 'n / 2 devuelve un float (5.0) y los índices de lista deben ser enteros → TypeError. n // 2 es división entera (5).',
+  },
+  {
+    id: 'f-py-11',
+    bloque: 'python',
+    frente: 'Moda de puntos_prueba: diccionario de frecuencias y resultado',
+    reverso: '{58: 2, 48: 1, 78: 3, 68: 2, 88: 1, 98: 1}; max(frecuencias.values()) = 3 → modas = [78] (aparece 3 veces).',
+  },
+  {
+    id: 'f-py-12',
+    bloque: 'python',
+    frente: 'max(frecuencias) vs max(frecuencias.values())',
+    reverso: 'max(frecuencias) recorre las CLAVES → 98 (la puntuación mayor). max(frecuencias.values()) → 3 (la frecuencia mayor).',
+  },
+  {
+    id: 'f-py-13',
+    bloque: 'python',
+    frente: 'Desviación estándar de puntos: los 5 números clave',
+    reverso: 'Promedio 72 · suma de desviaciones al cuadrado 2040 · varianza 2040 / 10 = 204 · desviación estándar 204 ** 0.5 ≈ 14,28.',
+  },
+  {
+    id: 'f-py-14',
+    bloque: 'python',
+    frente: 'Desviaciones de los 10 alumnos respecto a 72',
+    reverso: 'Alba −14, Marcos −24, Nerea 6, Pablo −4, Sara 16, Óscar −14, Valeria 6, Mateo −4, Claudia 26, Raúl 6. (Suman 0.)',
+  },
+  {
+    id: 'f-py-15',
+    bloque: 'python',
+    frente: 'Varianza poblacional vs muestral',
+    reverso: 'Poblacional: ÷ n (la del examen: 2040 / 10 = 204). Muestral: ÷ (n − 1) (2040 / 9 ≈ 226,67).',
+  },
+  {
+    id: 'f-py-16',
+    bloque: 'python',
+    frente: '¿Cómo se calcula una raíz cuadrada sin librerías? ¿Y estimarla sin calculadora?',
+    reverso: 'varianza ** 0.5 (NO ^, que es XOR). A mano: 14² = 196 y 15² = 225 → √204 está entre 14 y 15, más cerca de 14 (≈ 14,28).',
+  },
+
+  // ───────── EDA ─────────
+  { id: 'f-eda-01', bloque: 'eda', frente: 'EDA', reverso: 'Análisis exploratorio de datos: primera exploración para entender qué datos hay, detectar problemas y buscar patrones. Orienta la limpieza y el análisis.' },
+  { id: 'f-eda-02', bloque: 'eda', frente: 'Población vs muestra', reverso: 'Población: el conjunto completo que se quiere estudiar. Muestra: la parte de la que tenemos datos (p. ej., 8 visitas de un lunes).' },
+  { id: 'f-eda-03', bloque: 'eda', frente: 'Unidad de observación', reverso: 'El elemento sobre el que se recogen datos. Se identifica preguntando qué representa una fila (un viaje, una visita).' },
+  { id: 'f-eda-04', bloque: 'eda', frente: 'Identificador', reverso: 'Código que distingue un registro (V101, id 3). Sirve para localizarlo y detectar repeticiones. Aunque sea numérico, no mide una cantidad.' },
+  { id: 'f-eda-05', bloque: 'eda', frente: 'Variable continua vs discreta', reverso: 'Continua: cualquier valor en un intervalo (18,5 min). Discreta: valores separados, recuentos (0, 1, 2 pasajeros).' },
+  { id: 'f-eda-06', bloque: 'eda', frente: 'Categórica nominal vs ordinal', reverso: 'Nominal: sin orden (línea A/B). Ordinal: con orden natural (ocupación baja/media/alta).' },
+  { id: 'f-eda-07', bloque: 'eda', frente: 'Dato nulo ≠ 0', reverso: 'Nulo = desconocido o no registrado (casilla vacía o NULL). 0 es un valor conocido: 0 pasajeros (V102) es válido; NULL pasajeros (V105) es una ausencia.' },
+  { id: 'f-eda-08', bloque: 'eda', frente: 'Dato incorrecto', reverso: 'Valor que contradice lo ocurrido o una regla del contexto. Ej.: duración de −8 min (V103). Se consulta la fuente; si no se recupera, se marca como nulo.' },
+  { id: 'f-eda-09', bloque: 'eda', frente: '¿Por qué ver B12 varias veces no basta para borrar filas?', reverso: 'B12 es el autobús, que hace varios viajes. Un duplicado es la misma observación repetida: las dos filas V106 (mismo viaje y todos los campos iguales).' },
+  { id: 'f-eda-10', bloque: 'eda', frente: 'Recuperar de la fuente vs imputar', reverso: 'Recuperar: valor real comprobado (V104 = 23 min según el parte; se anota su origen). Imputar: estimación a partir de otros datos (media, mediana, moda).' },
+  { id: 'f-eda-11', bloque: 'eda', frente: 'Imputar: ¿media, mediana o moda?', reverso: 'Media: numérica simétrica sin extremos. Mediana: con extremos o asimetría. Moda: categórica. Siempre marcar el valor como estimado.' },
+  { id: 'f-eda-12', bloque: 'eda', frente: 'Duración de V103: ¿con qué imputar? (válidas: 20, 23, 52)', reverso: 'Con la mediana, 23 min. La media (≈ 31,7) sube por el viaje de 52, que es válido. Marcar V103 como estimado.' },
+  { id: 'f-eda-13', bloque: 'eda', frente: 'Tipo de servicio de V105: ¿con qué imputar?', reverso: 'Con la moda: «Ordinario» (2 ordinarios frente a 1 refuerzo en la línea B). Avisar de que es una estimación basada en pocos registros.' },
+  { id: 'f-eda-14', bloque: 'eda', frente: 'Frecuencia absoluta vs relativa', reverso: 'Absoluta: número de observaciones de un valor/categoría. Relativa: absoluta / total (fracción o %).' },
+  { id: 'f-eda-15', bloque: 'eda', frente: 'Cuartiles y percentiles', reverso: 'Percentil k: deja ≈ k % de los datos en él o por debajo. Q1 = P25, Q2 = P50 (mediana), Q3 = P75. Entre Q1 y Q3: la mitad central.' },
+  { id: 'f-eda-16', bloque: 'eda', frente: 'IQR y límite superior (Caso 2)', reverso: 'IQR = Q3 − Q1 = 13 − 6 = 7. Límite superior = Q3 + 1,5·IQR = 13 + 10,5 = 23,5.' },
+  { id: 'f-eda-17', bloque: 'eda', frente: 'Límite vs bigote', reverso: 'El límite (23,5) es un umbral calculado. El bigote termina en el mayor valor OBSERVADO que no supera el límite (14). El 36 se dibuja aparte como atípico.' },
+  { id: 'f-eda-18', bloque: 'eda', frente: 'Outlier', reverso: 'Valor poco habitual respecto al resto. Puede ser real o un error: comprobar antes de cambiarlo o eliminarlo. El 36 verificado es atípico y válido → se conserva.' },
+  { id: 'f-eda-19', bloque: 'eda', frente: 'Esperas del Caso 2: media, mediana, moda. ¿Cuál usar?', reverso: 'Media 12, mediana 9, moda 6. Para una espera habitual: la mediana (9), porque el 36 la afecta menos que a la media.' },
+  { id: 'f-eda-20', bloque: 'eda', frente: 'Correlación', reverso: 'Cómo varían juntas dos variables: positiva (suben juntas) o negativa (una sube y la otra baja). No implica causalidad.' },
+  { id: 'f-eda-21', bloque: 'eda', frente: 'Histograma vs gráfico de barras', reverso: 'Histograma: variable numérica en intervalos contiguos (reparto de esperas). Barras: categorías separadas (viajes por línea).' },
+  { id: 'f-eda-22', bloque: 'eda', frente: 'Gráfico de dispersión (Caso 2)', reverso: 'Dos variables numéricas de la misma observación. X = personas por delante, Y = espera (min). Cada punto = una visita.' },
+  { id: 'f-eda-23', bloque: 'eda', frente: 'Boxplot y mapa de calor', reverso: 'Boxplot: mediana, caja Q1–Q3, bigotes y atípicos; compara centro y dispersión entre grupos. Mapa de calor: tabla coloreada (viajes por línea y franja horaria) con leyenda.' },
+
+  // ───────── POO ─────────
+  { id: 'f-poo-01', bloque: 'poo', frente: 'Clase vs instancia', reverso: 'Clase: definición de atributos y métodos de una categoría de objetos (Coche). Instancia: objeto concreto creado con ella (coche01 = Coche("SEAT", "Leon")).' },
+  { id: 'f-poo-02', bloque: 'poo', frente: '¿Qué hace __init__?', reverso: 'Se llama automáticamente al crear la instancia para INICIALIZAR su estado (no la crea: el objeto ya existe cuando se ejecuta).' },
+  { id: 'f-poo-03', bloque: 'poo', frente: 'self', reverso: 'Referencia a la instancia concreta sobre la que se ejecuta el método. Distingue self.marca (atributo) de marca (parámetro).' },
+  { id: 'f-poo-04', bloque: 'poo', frente: 'Variable local vs atributo', reverso: 'Local: existe solo durante esa ejecución del método. Atributo (self.x): forma parte del estado del objeto y persiste.' },
+  { id: 'f-poo-05', bloque: 'poo', frente: 'coche_a acelera 2 veces y coche_b 1 vez (+10 cada vez). ¿Velocidades?', reverso: 'coche_a.velocidad = 20 y coche_b.velocidad = 10. Cada instancia tiene su propio estado.' },
+  { id: 'f-poo-06', bloque: 'poo', frente: 'Herencia: sintaxis y relación', reverso: 'class Hija(Padre): — la hija reutiliza, amplía o redefine lo del padre. Relación «es un» (un CocheElectrico es un Vehiculo).' },
+  { id: 'f-poo-07', bloque: 'poo', frente: 'super().__init__(marca, modelo)', reverso: 'Ejecuta el __init__ del padre sobre la MISMA instancia para inicializar los atributos comunes. No crea un objeto nuevo del padre.' },
+  { id: 'f-poo-08', bloque: 'poo', frente: 'Sobrescritura (override)', reverso: 'Definir en la hija un método con el mismo nombre que en el padre; al llamarlo desde la hija se ejecuta su versión.' },
+  { id: 'f-poo-09', bloque: 'poo', frente: 'Polimorfismo y duck typing', reverso: 'La misma llamada (motor.arrancar()) funciona con objetos de clases distintas. Duck typing: basta con que tengan el método, no hace falta una clase padre común.' },
+  { id: 'f-poo-10', bloque: 'poo', frente: 'MRO', reverso: 'Method Resolution Order: orden en que Python busca un método o atributo en la jerarquía (hija → padre → … → object).' },
+  { id: 'f-poo-11', bloque: 'poo', frente: 'print vs return', reverso: 'print muestra en pantalla; return entrega el valor a quien llama. Sin return, la función devuelve None.' },
+  { id: 'f-poo-12', bloque: 'poo', frente: 'self.marca = marca,  (con coma final)', reverso: 'Guarda una TUPLA de un elemento: ("SEAT",). Se imprime (\'SEAT\',).', codigo: 'self.marca = marca,   # ¡tupla!\nself.marca = marca    # correcto' },
+  { id: 'f-poo-13', bloque: 'poo', frente: 'El padre hace print en describir() y la hija hace base = super().describir()', reverso: 'base vale None (el método del padre no tiene return). La hija acabaría devolviendo «None; autonomía: …».' },
+  { id: 'f-poo-14', bloque: 'poo', frente: 'try / except ValueError', reverso: 'try: código que puede fallar (int(input())). Si int() recibe texto no entero lanza ValueError y se ejecuta el except; el programa continúa.' },
+  { id: 'f-poo-15', bloque: 'poo', frente: 'f-string', reverso: 'f"...{expresión}..." evalúa las llaves al crear la cadena. No imprime sola: necesita print().' },
+
+  // ───────── Regex ─────────
+  { id: 'f-re-01', bloque: 'regex', frente: '¿Por qué r"\\d+" y no "\\d+"?', reverso: 'r crea un raw string: Python no interpreta las barras invertidas como escapes de cadena y el patrón llega intacto al módulo re.' },
+  { id: 'f-re-02', bloque: 'regex', frente: '\\d  \\w  \\s  y sus mayúsculas', reverso: '\\d dígito, \\w carácter de palabra (letra, dígito, _), \\s espacio en blanco. \\D, \\W, \\S: lo contrario.' },
+  { id: 'f-re-03', bloque: 'regex', frente: '\\b', reverso: 'Límite de palabra. r"\\bgato\\b" encuentra «gato» en «el gato» pero no en «gatopardo».' },
+  { id: 'f-re-04', bloque: 'regex', frente: '[abc]   [0-9]   [^0-9]', reverso: 'Un carácter de los enumerados; un dígito ASCII; un carácter que NO sea dígito (^ al principio de los corchetes niega).' },
+  { id: 'f-re-05', bloque: 'regex', frente: '*   +   ?   {n}   {n,m}', reverso: 'Cero o más; una o más; cero o una; exactamente n; entre n y m repeticiones del elemento anterior.' },
+  { id: 'f-re-06', bloque: 'regex', frente: 'Greedy vs no greedy', reverso: '.* consume todo lo posible ("<b>hola</b>"); .*? lo mínimo ("<b>").' },
+  { id: 'f-re-07', bloque: 'regex', frente: '( ) vs (?: )', reverso: '( ) agrupa y captura (group(1)…). (?: ) agrupa sin capturar.' },
+  { id: 'f-re-08', bloque: 'regex', frente: 'search vs match vs fullmatch', reverso: 'search: en cualquier posición. match: solo al inicio. fullmatch: todo el texto. Las tres devuelven Match o None.' },
+  { id: 'f-re-09', bloque: 'regex', frente: 'Buscar vs validar', reverso: 'Buscar: localizar una parte del texto (search). Validar: comprobar que el texto entero cumple el formato (fullmatch).' },
+  { id: 'f-re-10', bloque: 'regex', frente: 'findall con grupos', reverso: 'Sin grupos: lista de coincidencias. Con 1 grupo: lista con el contenido del grupo. Con varios: lista de tuplas. finditer → objetos Match.' },
+  { id: 'f-re-11', bloque: 'regex', frente: 'sub y split', reverso: 'sub(p, r, t): nueva cadena con las coincidencias sustituidas. split(p, t): lista de trozos usando las coincidencias como separador.' },
+  { id: 'f-re-12', bloque: 'regex', frente: 'IGNORECASE, MULTILINE, DOTALL', reverso: 'Ignora mayúsculas; ^ y $ por línea; . incluye el salto de línea.' },
+  { id: 'f-re-13', bloque: 'regex', frente: 'Objeto Match: group, start, end, span', reverso: 'group(): texto; start()/end(): posiciones (fin exclusivo); span(): (inicio, fin). Comprobar antes que no es None.' },
+];
